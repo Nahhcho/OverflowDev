@@ -46,6 +46,9 @@
 
   --font-inter: var(--font-inter);
   --font-space-grotesk: var(--font-space-grotesk);
+  --background-image-auth-dark: url("/images/auth-dark.png");
+  --background-image-auth-light: url("/images/auth-light.png");
+  
 }
 
 
