@@ -3,8 +3,12 @@ import Link from "next/link";
 import React from "react";
 import Theme from "./Theme";
 import MobileNav from "./MobileNav";
+import { auth } from "@/auth";
+import UserAvatar from "@/components/UserAvatar";
 
 const Navbar = () => {
+  const session = await auth();
+
   return (
     <div
       className="flex justify-between items-center background-light900_dark200 fixed
@@ -28,7 +32,15 @@ const Navbar = () => {
 
         <div className="flex-between gap-5">
           <Theme />
-          
+            {session?.user?.id && (
+              <UserAvatar 
+              id={session.user.id}
+              name={session.user.name!}
+              imageUrl={session.user?.image}
+              />
+            )
+
+            }
           <MobileNav />
         </div>
     </div>

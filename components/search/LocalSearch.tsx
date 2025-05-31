@@ -39,7 +39,7 @@ const LocalSearch = ({ route, imgSrc, placeHolder, otherClasses }: Props) => {
         }
       }
 
-    }, 1000);
+    }, 300);
 
     return () => clearTimeout(debounce)
   }, [searchQuery, router, route, searchParams]);
