@@ -3,7 +3,7 @@ import handleError from "@/lib/handlers/error";
 import { NotFoundError } from "@/lib/http-errors";
 import dbConnect from "@/lib/mongoose";
 import { UserSchema } from "@/lib/validations";
-import { APIErrorResponse } from "@/types/global";
+import { APIErrorResponse, APIResponse } from "@/types/global";
 import { NextResponse } from "next/server";
 
 //READ a user by id
@@ -41,7 +41,8 @@ export async function DELETE(_:Request, { params }: { params: Promise<{ id: stri
 }
 
 //UPDATE a user by id
-export async function POST(request:Request, { params }: { params: Promise<{ id: string }> }) {
+export async function POST(request:Request, { params }: { params: Promise<{ id: string }> })
+:Promise<APIResponse> {
     const { id } = await params;
     if (!id) throw  new NotFoundError("User");
 

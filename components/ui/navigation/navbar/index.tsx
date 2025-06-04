@@ -6,7 +6,7 @@ import MobileNav from "./MobileNav";
 import { auth } from "@/auth";
 import UserAvatar from "@/components/UserAvatar";
 
-const Navbar = () => {
+const Navbar = async () => {
   const session = await auth();
 
   return (
